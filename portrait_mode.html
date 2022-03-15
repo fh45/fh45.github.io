@@ -55,7 +55,12 @@
 
 									<h3 class="major">Principe</h3>
 									<p>
-										Principe de la profondeur de champ optique. Pourquoi c'est impossible avec un telephone et comment c'est simulé
+										Le materiel photographique des smartphones ne permet pas de réaliser naturellement du flou d'arrière plan. 
+										En effet le flou s'obtient avec des objectifs de longue focale, de grande ouverture et des grands capteurs. 
+										Sur les téléphone on ne peut avoir des objectifs avec de longue focale, ni de grands capteurs. Il faut donc créer le flou 
+										d'une atre manière. Plusieurs méthodes logicielles permettent de réaliser ce flou. Elles s'appuient en grande majorité sur
+										le calcul et la détéction de la profondeur de la scène. Ce calcul de profondeur s'appuie dans la majorité des cas sur un système 
+										de stéréo-vision qui compare le décalage des points entre deux images prises de deux points de vues sensiblements différents. 
 
 									</p>
 
@@ -63,22 +68,72 @@
 								
 
 									<h3 class="major">Techniques</h3>
+
 									<p>
-										Techniques de segmentations
+										Multi caméras Depth Map:
 									</p>
+
+									<p> 
+										Les appareils dotés de plusieurs caméras comme les smartphones récents peuvent utiliser deux clichés de la même scène pris avec des angles de vue légèrement 
+										différents pour calculer la profondeur de la scène en chaque point. Cette profondeur se retrouve grâce à l'amplitude de l'écart de postion entre un même point dans les 
+										deux images. C'est le même fonctionnement que la vision humaine. Plus un point est à des positions éloignées sur les deux images, plus il est proche des capteurs.
+									</p>
+
+
+										<div class="fig">
+											<figure>
+												
+												<img src="images/portrait_mode_aplle.png" alt="" width="400"  >
+												<figcaption><i><a href="https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/capturing_photos_with_depth" >Apple developer : Capturing photos with depth
+												</a></i></figcaption>
+											</figure>
+											</div>
+										
+									
+
+									<p>
+										Dual-pixel:
+									</p>
+									<p>
+										Dual-pixel est une technologie développée par Google pour ses téléphones Pixels qui ne disposaient à l'orogine que d'une caméra. Avec une 
+										seule caméra, il est matériellement impossible d'utiliser l'effet de stéréo-vision pour calculer la profondeur de champs. Pour 
+										faire cela, Google sépare chaque pixel en deux. De cette manière on peut obtenir deux vues légèrement différentes de la scène 
+										avec un seul appareil photo comme s'il y en avait virtellement deux. Comme en stéréo-vision, la profondeur de champ se retrouve grâce au parallaxe, c'est à 
+										dire le mouvement des points entre les images. Cependant cette méthode de caméras virtuelles ne fonctionne pas pour estimer la profondeur d'objets lointains car 
+										la distance séparant les deux appareils virtuels est très faible (inférieure au millimètre).
+									</p>
+
+									<p>
+										Les derniers téléphones de la marque étant équipé de plusieurs caméras, ils combinent la technologie classique de stéréo-vision par plusieurs capteurs physique avec cette méthode. 
+										En effet la méthode "Dual-pixel" est complémentaire et permet d'avoir des informations sur la profondeurs de points qui seraient visibles sur une des images prise par un des appareils 
+										mais invisible sur l'autre en raison du décalage plus important de l'angle de vue. C'est donc une méthode qui permet d'affiner la segmentation spatiale de l'image.
+
+									</p>
+
+
 
 									
 									<div class="fig">
 									<figure>
-										<img src="images/camera_model.png" alt="" width="500"  >
-										<figcaption><i><a href="docs/Maître - 2013 - From digital camera to computational photography.pdf" >Henry Maitre : From digital camera to computational photography
+										<img src="images/Dual-pixel.png" alt="" width="400"  >
+										
 										</a></i></figcaption>
 									</figure>
 									</div>
 
+									<div class="fig">
+										<figure>
+											
+											<img src="images/Dual-pixel.gif" alt="" width="500"  >
+											<figcaption><i><a href="https://www.googblogs.com/improvements-to-portrait-mode-on-the-google-pixel-4-and-pixel-4-xl/" >Google AI Blog : Dual-Pixel
+											</a></i></figcaption>
+										</figure>
+										</div>
+
+									
 
 
-									<p style="margin-top: 50px" >blabla
+									<p style="margin-top: 50px" >
 									</p>
 
 									

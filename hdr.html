@@ -44,7 +44,7 @@
 						<header>
 							<div class="inner">
 								<h2>HDR : High Dynamic Range</h2>
-								<p>Le High Dynamic Range permet de superposer des images afin d'obtenir une image exposée correctement
+								<p>Le High Dynamic Range permet de superposer des images avec des expositions différentes afin d'obtenir une image exposée correctement
 									malgré des situations de forts contrastes lumineux comme les paysages.</p>
 							</div>
 						</header>
@@ -53,53 +53,115 @@
 							<div class="wrapper">
 								<div class="inner">
 
-									<h3 class="major">Principe</h3>
+									<h3 class="major">Limite de plage dynamique des capteurs</h3>
 									<p>
-										La plage dynamique correspond à la quantité d'informations présentes dans l'image. Une photo traditionnelle présentant
-										une situation de fort contraste a souvent une partie qui perd de l'information. La photographie peut être sous-exposée si 
+										La plage dynamique (dynamic range) correspond à la quantité d'informations présentes dans l'image. Elle traduit l'étendue mesurée par le capteur entre la plus petite et la plus grande valeur d'intensité. 
+										Une photo traditionnelle présentant une situation de fort contraste a souvent une partie qui perd de l'information. La photographie peut être sous-exposée si 
 										les zones de faible luminosité de l'image ont des valeurs trop faibles : les pixels sont noirs. A l'inverse sur une photo 
 										sur-exposée, le seuil de la valeur numérique d'encodage de l'information est atteint, la zone de l'image devient blanche.
-										Il est plus aisé d'amplifier en post traitement les faibles valeurs d'intensité qui sont toutes différentes sur la zone et non 
-										à 0 notamment en raison de phénomènes de bruits numériques. A l'opposé on ne pourra jamais récupérer les détails d'une zone sur-exposé
+										On récupère plus de détails en post traitement sur les faibles valeurs d'intensité qui sont toutes légèrement différentes de zéro sur la zone et non 
+										en raison de phénomènes de bruits numériques. A l'opposé on ne pourra jamais récupérer les détails d'une zone sur-exposé
 										car tous les pixels sont au seuil, il n'y a plus de nuances de détails, même en diminuant la valeur de l'intensité en post-traitement. 
 										La sous-exposition est donc recommandée dans ce genre de situtations mais l'amplification du signal va également amplifier le bruit, véritable ennemi du 
-										photographe. La solution apportée par la photographie computationnelle est de fusionner des images capturées avec des expositions différentes.
+										photographe. La plage dynamique est fixée par le capteur de l'appareil photo qui enregistre le signal lumineux. La solution apportée par la photographie computationnelle est de fusionner des images capturées avec des expositions différentes.
 
 									</p>
 
 									<P>
-										L'intérêt d'utiliser différentes expositions est le suivant : sur les images très exposées (qui ont reçues une grande quantité de lumière), les zones sombres seront riches en détails. A l'inverse sur les images faiblement exposée, ce sont les régions de
-										forte intensité lumineuses qui sont bien représentées. Si l'exposition de la scène change sur différentes photographies prises, la valeur du pixel en point peut être choisie grâce aux différentes valeurs qu'il prend sur les différentes images.
+										L'intérêt d'utiliser différentes expositions est le suivant : sur les images très exposées (qui ont reçues une grande quantité de lumière), les zones sombres seront riches en détails. A l'inverse sur les images faiblement exposées, ce sont les régions de
+										forte intensité lumineuses qui sont bien représentées. Si l'exposition de la scène change sur différentes photographies prises, la valeur du pixel en point peut être choisie grâce aux différentes valeurs qu'il prend sur les différentes images. Cette technique 
+										permettent d'éviter le bruit numérique dû à l'amplification du signal dans les zones sombres en simple exposition et d'améliorer les performances des petits capteurs de smartphones qui recoivent moins de lumière en raison de leur faible surface.
 									</P>
 
 
 								
 
-									<h3 class="major">Techniques</h3>
-									<p>blabla
-									</p>
+									<h3 class="major">Principe et techniques</h3>
+								
 
+									La problématique est donc de fusionner correctement des images qui représentent la même scène avec des expositions différentes. Pour cela la scène ne doit pas varier d'une image à l'autre. 
+									Cette technique sera donc beaucoup plus compliqué à utiliser pour capturer un mouvement comme en photographie de sport. La photographie de paysage est la plus propice à cette technique de photographie 
+									computationnelle car les scènes sont fixes et le contraste de luminosité est très marqué entre le ciel et le sol. 
+								    </p>
+
+									
+
+									<p style="margin-top: 50px" >
+										La courbe de réponse d'un capteur présente deux non-linéarités qui traduisent les limitations physique du capteur face à une situation 
+										de forts contrastes lumineux. Un grand bruit existe pour les faibles valeurs d'intensité et un phénomène de saturation pour les grandes valeurs.
+									</p>
 									
 									<div class="fig">
 									<figure>
-										<img src="images/camera_model.png" alt="" width="500"  >
-										<figcaption><i><a href="docs/Maître - 2013 - From digital camera to computational photography.pdf" >Henry Maitre : From digital camera to computational photography
-										</a></i></figcaption>
+										<img src="images/sensor_response.png" alt="" width="500"  >
+										<figcaption><i> Courbe de réponse d'un capteur</i></figcaption>
 									</figure>
 									</div>
 
+									<p style="margin-top: 50px" >
+										Lors d'une exposition multiple, l'irradiance de la scène est modifiée grâce aux réglages du diaphragme, de la vitesse d'obturation et de la sensibilité du capteur. 
+										La courbe de réponse se translate donc horizontalement en fontion des expositions.
+									</p>
+
+									<div class="fig">
+										<figure>
+											<img src="images/sensor_response_multi_exp.png" alt="" width="500"  >
+											<figcaption><i> Courbe de réponse d'un capteur pour différentes expositions</i></figcaption>
+										</figure>
+										</div>
+
+										<p style="margin-top: 50px" > La recombinaison des photographies permet d'augmenter la plage de réponse linéaire du capteur et donc la plage dynamique. 
+											Cependant la zone de bruit augmente. L'enjeu est de trouver de bonnes méthodes de recombinaison pour réduire le bruit.
+
+										</p>
+
+										<div class="fig">
+											<figure>
+												<img src="images/sensor_response_multi_exp_superpos.png" alt="" width="500"  >
+												<figcaption><i> Superposition des expositions multiples</i></figcaption>
+											</figure>
+											</div>
+
+											<p style="margin-top: 50px" > La méthode naïve est d'utiliser une moyenne simple sur les différents points. Qui réduit légèrement la disparité des points de faible valeurs d'irradiance.
+											</p>
+
+											<div class="fig">
+												<figure>
+													<img src="images/sensor_response_multi_exp_average.png" alt="" width="500"  >
+													<figcaption><i> Recombinaision naïve par moyenne</i></figcaption>
+												</figure>
+												</div>
+
+												<p style="margin-top: 50px" > Pour avoir un meilleur résultat on peut pondérer cette moyenen avec des coefficients qui prennent en compte la variance du bruit du signal. Cela permet d'obtenir un résultat bien meilleur.
+												</p>
+
+												<div class="fig">
+													<figure>
+														<img src="images/sensor_response_mini_variance.png" alt="" width="500"  >
+														<figcaption><i> Recombinaision par minimisation de variance</i></figcaption>
+													</figure>
+													</div>
+
+													<p style="margin-top: 50px" >
+													</p>
 
 
-									<p style="margin-top: 50px" >blabla
+
+									<p style="margin-top: 50px" >
+
+										D'autres techniques de recombinaison voient le jour et la recherche dans ce domaine continue, notamment en travaillant sur les modèles de bruits.
 									</p>
 
 									
 
 
 									<h3 class="major" style="margin-top: 50px">Exemples</h3>
-									<p style="margin-top: 10px"> 
-										blabla
-									</p>
+									<div class="fig">
+										<figure>
+											<img src="images/hdr_example.jpg" alt="" width="500"  >
+											<figcaption><i><a href="https://www.lightstalking.com/4-ways-to-use-image-stacking-to-create-better-images/?utm_content=buffera0f04&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer" >HDR avec 3 expositions </a></i></figcaption>
+										</figure>
+										</div>
 									
 
 								</div>
@@ -111,7 +173,9 @@
 					<section id="footer">
 						<div class="inner">
 							<h2 class="major">Sources</h2>
-							<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+							<p>Rafal Mantiuk : <i>Applications of computational
+								photography: HDR merging and
+								digital refocusing</i></p>
 							
 						</div>
 					</section>

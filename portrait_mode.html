@@ -90,6 +90,17 @@
 												</a></i></figcaption>
 											</figure>
 											</div>
+
+										<p style="margin-top: 50px"> 
+										
+											Les deux images sont souvent prétraitées afin de retrouver plus facilement les points de correspondances pour calculer des disparités entre des 
+											pixels de la même ligne sur les deux images. Toute la difficulté est alors d'avoir un algorithme de mise en correspondance efficace pour calculer 
+											les disparités (décalage spatial d'un point de la scène entre les deux images). En effet entre les deux projections formées par les deux images, il 
+											n'y a pas forcément la même intenisté lumineuse, les mêmes points visibles en fonction des angles de vue, et du bruit qui vient s'ajouter à l'information.
+											Le prétraitement prenant en compte la disposition géométrique des capteurs premet une rectification qui va restreindre la recheche à des lignes de pixels appelés "épipoles".
+
+
+										</p>
 										
 									
 
@@ -138,11 +149,42 @@
 									<p style="margin-top: 50px" >
 									</p>
 
+									<p>
+										Autres techniques:
+									</p>
+
+									<p>
+										D'autres techniques comme la segmentation par intelligence artificielle permettent d'obtenir cet effet de flou artificiel. Par exemple les derniers smartphones d'Apple sont équipés d'un LiDAR. Le LiDAR utilise
+										des émissions de lumière invisible pour calculer des distances par télémétrie. La distance est calculée comme pour un radar ou un sonar, c'est 
+										à dire en mesurant le délai entre l'émission d'une impulsion et la détéction d'une implusion réfléchie. La miniaturisation de cette technologie sur 
+										les smartphones peremt d'obtenir des cartes de profondeur de scène plus détaillées et de capturer des images 3D de certains objets. La photographie computationnelle 
+										peut donc aussi s'appuyer sur des innovations matérielles.
+
+										<div class="fig">
+											<figure>
+												
+												<img src="images/iphone13.jpg" alt="" width="200"  >
+												<figcaption><i><a href="https://www.apple.com/fr/newsroom/2021/09/apple-unveils-iphone-13-pro-and-iphone-13-pro-max-more-pro-than-ever-before/" >Apple : iPhone 13 avec ses 3 caméras et son LiDAR
+												</a></i></figcaption>
+											</figure>
+											</div>
+
+									</p>
+
 									
 
 
 									<h3 class="major" style="margin-top: 50px">Exemples</h3>
 									<p style="margin-top: 10px"> 
+
+										<div class="fig">
+											<figure>
+												
+												<img src="images/portrait_mode_google.jpg" alt="" width="300"  >
+												<figcaption><i><a href="https://ai.googleblog.com/2017/10/portrait-mode-on-pixel-2-and-pixel-2-xl.html" >Google AI Blog : Portrait mode on the Pixel 2 and Pixel 2 XL smartphones
+												</a></i></figcaption>
+											</figure>
+											</div>
 										
 									</p>
 									
@@ -156,7 +198,22 @@
 					<section id="footer">
 						<div class="inner">
 							<h2 class="major">Sources</h2>
-							<p></p>
+							<p>
+
+								<ul class="links">
+									<li><a  href="https://doi.org/10.1007/978-3-319-23192-1_17">Liu, Dongwei, Radu Nicolescu, et Reinhard Klette. « Bokeh Effects Based on Stereo Vision », 2015.</a></li>
+									<li><a href="http://ai.googleblog.com/2017/10/portrait-mode-on-pixel-2-and-pixel-2-xl.html">Google AI Blog. « Portrait Mode on the Pixel 2 and Pixel 2 XL Smartphones ». Consulté le 03 mars 2022.</a></li>
+									<li><a href="https://www.googblogs.com/improvements-to-portrait-mode-on-the-google-pixel-4-and-pixel-4-xl/">AI, Google. « Improvements to Portrait Mode on the Google Pixel 4 and Pixel 4 XL | Googblogs.Com ». Consulté le 03 mars 2022.</a></li>
+								</ul>
+								
+								
+								
+								
+
+								 
+
+
+							</p>
 							
 						</div>
 					</section>

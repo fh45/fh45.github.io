@@ -44,7 +44,7 @@
 						<header>
 							<div class="inner">
 								<h2>Deep Learning</h2>
-								<p>Le deep learning est une méthode d'intelligence artificielle utilisée pour améliorer les traitements d'images automatiques
+								<p>Le deep learning ou apprentissage profond est une méthode d'intelligence artificielle non supervisée utilisée pour améliorer les traitements d'images automatiques
 									et obtenir une image correctement exposée et avec de belles couleurs sans le moindre effort.
 								</p>
 							</div>
@@ -54,24 +54,46 @@
 							<div class="wrapper">
 								<div class="inner">
 
-									<h3 class="major">Principe</h3>
+									<h3 class="major">Principe et techniques</h3>
 									<p>
 
+										L'intelligence artificielle en photographie s'appuie en grande partie sur des réseaux de neurones convolutionnels. Ces réseaux sont consitués de 
+										différentes couches qui vont extraire de l'information des pixels de l'image en appliquant des filtres de convolution. Ces réseaux sont entrainés 
+										pour chaque application afin d'avoir un modèle spécialisé sur la tâche à accomplir. Toute la science des réseaux de neurones convolutionnels vient de la vision 
+										par ordinateur. Un grand nombre de réseaux performants tels que Unet ou VGG ont été développés. Ces réseaux peuvent être utilisés et réentrainés par 
+										transfert learning pour apprendre à réaliser d'autres tâches que celles pour lesquelles ils ont été conçus. Pour cela il faut disposer d'un certain nombre de données d'entrainement ce qui 
+										peut être une limite.
 									</p>
+
+									<div class="fig">
+										<figure>
+											<img src="images/Unet.png" alt="" width="600"  >
+											<figcaption><i><a href="https://doi.org/10.1364/OPTICA.6.000921" >Architecture du réseau U-net </a></i></figcaption>
+										</figure>
+										</div>
+
+									<p style="margin-top:50px">
+
+										L'intelligence artificielle par apprentissage profond trouve de nombreuses applications en photographie comptationnelle. La détection en temps réel de sujet par segmentation 
+										d'image permet d'automatiser la mise au point ou bien de détourer en temps réel pour appliquer des filtres ou des masques sur l'image. Un grand nombre d'applications mobiles tirent partie
+										de cette technologie pour proposer aux utilisateurs des filtres photos temps réel comme Snapchat. Par ailleurs des réseaux ont récemment été entrainés pour automatiser la retouche photo et obtenir
+										directement une image parfaite en terme de couleur et d'exposition.
+									</p>
+
+
+									<p>
+										L'intelligence artificielle a de nombreuses autres applications plus marginales en photographie. Elle permet par exemple de faire de 
+										la super-résolution, c'est à dire générer une image haute résolution à partir d'une basse résoltion. Elle permet aussi de coloriser d'anciennes images en noir en blanc.
+										
+									</p>
+
 
 
 								
-
-									<h3 class="major">Techniques</h3>
-									<p>
-									</p>
-
 									
 									
 
 
-									<p style="margin-top: 50px" >blabla
-									</p>
 
 									
 
@@ -81,6 +103,23 @@
 										
 									</p>
 									
+									<div class="fig">
+										<figure>
+											<img src="images/deep_learning.png" alt="" width="400"  >
+											<figcaption><i><a href="http://arxiv.org/abs/2002.05509" >Ignatov, Andrey, Luc Van Gool, et Radu Timofte. « Replacing Mobile Camera ISP with a Single Deep Learning Model » </a></i></figcaption>
+										</figure>
+										</div>
+
+										<p style="margin-top: 50px"></p>
+
+
+										<div class="fig">
+											<figure>
+												<img src="images/colorization.png" alt="" width="800"  >
+												<figcaption><i><a href="https://doi.org/10.1109/ICCV.2015.55" >Deep Colorization IEEE 2015</a></i></figcaption>
+											</figure>
+											</div>
+
 
 								</div>
 							</div>
@@ -88,13 +127,28 @@
 					</section>
 
 				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Sources</h2>
-							<p></p>
-							
-						</div>
-					</section>
+				<section id="footer">
+					<div class="inner">
+						<h2 class="major">Sources</h2>
+						<p>
+							<ul class="links">
+								<li><a href="https://doi.org/10.1364/OPTICA.6.000921">Barbastathis, George, Aydogan Ozcan, et Guohai Situ. « On the Use of Deep Learning for Computational Imaging ». Optica 6, nᵒ 8 (20 août 2019): 921‑43. </a> </li>
+								<li><a href="http://arxiv.org/abs/2002.05509">Ignatov, Andrey, Luc Van Gool, et Radu Timofte. « Replacing Mobile Camera ISP with a Single Deep Learning Model ». arXiv:2002.05509 [cs, eess], 13 février 2020. </a> </li>
+								<li><a href="http://people.ee.ethz.ch/~ihnatova/">« DPED Project ». Consulté le 26 janvier 2022. </a> </li>
+								<li><a href="https://doi.org/10.1109/ICCV.2015.55">Cheng, Zezhou, Qingxiong Yang, et Bin Sheng. « Deep Colorization ». In 2015 IEEE International Conference on Computer Vision (ICCV), 415‑23. Santiago, Chile: IEEE, 2015. </a> </li>
+								 
+
+							</ul>
+						</p>
+						 
+
+
+						
+					</div>
+				</section>
+
+					 
+
 
 			</div>
 

@@ -68,17 +68,35 @@
 
 									<h3 class="major">Techniques</h3>
 									<p>
+
+										Afin d'aligner et de fusionner les images qui constituent la scène, la première étape consiste à détecter des points d'intérêts ou "features" sur chacune des images.
+										Un calcul de correspondance des ces features entre les images permettra ensuite de les associer pour combiner les images. La méthode d'association des points d'intérêts
+										utilisée dans beaucoup d'application est SIFT (Scale Invariant Feature Transform). Les descripteurs SIFT calculés dans les images sont des informations numériques locales qui caractérisent le 
+										contenu visuel de manière indépendante de l'échelle, de l'angle d'observation et de l'exposition. Le but étant que deux photographies du même objet prises dans des conditions sensiblement différentes
+										possèdent les mêmes descritpeurs pour les mêmes points d'intérêt de l'objet. La détection des features est réalisée dans un espace des échelles qui s'obtient en appliquant par convolution des filtres 
+										gaussiens de différentes tailles. Les points d'intérêts seront ensuite identifiés parmi les extremums. Chaque point clé est décrit par un descripteur qui contient de l'information sur la zone du point d'intérêt. 
+										L'histogramme des gradients orientés est un descripteur classiquement utilisé. 
+										
+									</p>
+
+									<p>
+
+										Plusieurs méthodes d'identification des correspondances entre points clés existent avec des performances variées en terme de précision ou de temps de calcul.
+										Les méthodes classiques fonctionnent par recherche de plus proche voisin parmi les descripteurs. Il faudra des algorithmes plus rapides pour faire des rendus en temps réel avec les téléphones qui enregistrent un 
+										panorama à partir d'une vidéo, alors que pour des méthode de fusion de photographies en post-traitement des algorithmes plus lents mais plus précis peuvent être utilisés. Pour éviter de calculer toutes les scoers de correspondances entre
+										les features de toutes les images des algorithmes se basant sur la géométrie  et des probabilités réduisent les tests à un plus petits nombres de points. RANSAC est 
+										un de ces algorithmes.
 										
 									</p>
 
 									
 									<div class="fig">
-									<figure>
-										<img src="images/camera_model.png" alt="" width="500"  >
-										<figcaption><i><a href="docs/Maître - 2013 - From digital camera to computational photography.pdf" >Henry Maitre : From digital camera to computational photography
-										</a></i></figcaption>
-									</figure>
-									</div>
+										<figure>
+											<img src="images/panorama_process.png" alt="" width="600"  >
+											<figcaption><i><a href="https://pyimagesearch.com/2016/01/11/opencv-panorama-stitching/" >pyimagesearch : panorama avec deux images </a></i></figcaption>
+										</figure>
+										</div>
+
 
 
 
@@ -88,8 +106,18 @@
 									
 
 
-									<h3 class="major" style="margin-top: 50px">Exemples</h3>
+									<h3 class="major" style="margin-top: 50px">Exemple</h3>
 									<p style="margin-top: 10px"> 
+
+										<div class="fig">
+											<figure>
+												<img src="images/panorama_exemple.jpg" alt="" width="600"  >
+												<figcaption><i><a href="https://www.csie.ntu.edu.tw/~fuh/personal/PanoramaStitching.pdf" >Panorama Stitching : Shao-Yeh Huang, Chiou-Sann Fuh </a></i></figcaption>
+											</figure>
+											</div>
+
+
+										
 										
 									</p>
 									
@@ -100,13 +128,20 @@
 					</section>
 
 				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Sources</h2>
-							<p></p>
-							
-						</div>
-					</section>
+				<section id="footer">
+					<div class="inner">
+						<h2 class="major">Sources</h2>
+						<p>
+							<ul class="links">
+								<li><a href="https://www.csie.ntu.edu.tw/~fuh/personal/PanoramaStitching.pdf">Panorama Stitching, Shao-Yeh Huang, Chiou-Shann Fuh </a> </li>
+								<li><a href="https://www.pyimagesearch.com/2016/01/11/opencv-panorama-stitching/">PyImageSearch. « OpenCV Panorama Stitching», 11 janvier 2016 </a> </li>
+							</ul>
+						</p>
+						
+
+						
+					</div>
+				</section>
 
 			</div>
 
